@@ -5,7 +5,7 @@
 I based this calculator off a post by [walthsavvy](https://wealthsavvy.ca/norberts-gambit-questrade/).
 
 <kbd> 
-<img src="https://user-images.githubusercontent.com/85373263/132903636-c06c7e40-4f51-4cc9-95ce-f46c05a5a0b8.png"/>
+<img src="https://user-images.githubusercontent.com/85373263/132913145-1eda8b48-8637-4a96-8068-00e5d067b2bd.png"/>
 </kbd>
 
 ### Features & Design
@@ -49,7 +49,7 @@ Change `const SERVER_URL` in `/client/calculate.js` to url of your server.
 # Screenshots
 
 <kbd> 
-<img src="https://user-images.githubusercontent.com/85373263/132903636-c06c7e40-4f51-4cc9-95ce-f46c05a5a0b8.png"/>
+<img src="https://user-images.githubusercontent.com/85373263/132913145-1eda8b48-8637-4a96-8068-00e5d067b2bd.png"/>
 </kbd>
 </br>
 </br>
