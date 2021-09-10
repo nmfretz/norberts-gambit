@@ -1,0 +1,61 @@
+.container {
+  max-width: 600px;
+}
+
+.center {
+  text-align: center;
+}
+
+.title {
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+}
+
+.description {
+  margin-bottom: 0.5rem;
+}
+
+.attribution {
+  font-style: italic;
+  font-size: 0.8em;
+}
+
+.vert-align {
+  padding-top: 0.4em;
+}
+
+.output {
+  padding-top: 2em;
+  padding-left: 2em;
+  padding-right: 2em;
+  border-style: solid;
+  border-color: rgb(201, 201, 201);
+  border-width: 1px;
+  background-color: rgb(245, 245, 245);
+}
+
+.unit-input {
+  display: flex;
+}
+
+.units {
+  color: rgb(168, 168, 168);
+  padding-top: 0.45em;
+  padding-right: 0.6em;
+}
+
+.units-percent {
+  padding-right: 0.3em;
+}
+
+.units-none {
+  padding-right: 1.15em;
+}
+
+.hide {
+  display: none;
+}
+
+.note {
+  font-size: 1.2rem;
+}
