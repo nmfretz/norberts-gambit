@@ -1,0 +1,110 @@
+.nav {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.5rem 1rem;
+  font-size: 1.7rem;
+}
+
+.menu-items {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.menu-items li {
+  margin: 0;
+}
+
+.menu-items a {
+  text-decoration: none;
+  color: #222;
+}
+
+.menu-items a:hover {
+  color: #999;
+}
+
+.container {
+  max-width: 600px;
+}
+
+.center {
+  text-align: center;
+}
+
+.title {
+  margin: 0;
+  padding: 0.4em;
+  font-size: 3rem;
+}
+
+@media (min-width: 550px) {
+  .title {
+    font-size: 4rem;
+  }
+}
+
+.description {
+  margin: 0;
+}
+
+.attribution {
+  font-style: italic;
+  font-size: 0.8em;
+  margin: 0;
+}
+
+.form {
+  margin-top: 3.5rem;
+}
+
+.row div label {
+  text-align: center;
+}
+
+@media (min-width: 550px) {
+  .row div label {
+    text-align: left;
+  }
+}
+
+.vert-align {
+  padding-top: 0.4em;
+}
+
+.output {
+  padding-top: 2em;
+  padding-left: 2em;
+  padding-right: 2em;
+  border-style: solid;
+  border-color: rgb(201, 201, 201);
+  border-width: 1px;
+  background-color: rgb(245, 245, 245);
+}
+
+.unit-input {
+  position: relative;
+}
+
+.units {
+  position: absolute;
+  left: 1rem;
+  color: rgb(168, 168, 168);
+  padding-top: 0.45em;
+  padding-right: 0.6em;
+}
+
+.row div input {
+  padding-left: 3rem;
+}
+
+.hide {
+  display: none;
+}
+
+.note {
+  font-size: 1.2rem;
+}

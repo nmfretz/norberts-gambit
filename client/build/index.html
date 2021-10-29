@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"></script>
+    <title>Norbert's Gambit</title>
+    <link
+      rel="shortcut icon"
+      href="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/285/bank_1f3e6.png"
+      type="image/x-icon"
+    />
+  </head>
+
+  <body>
+    <nav class="nav">
+      <ul class="menu-items">
+        <li><a href="https://nathanfretz.me" target="_blank"> Nathan Fretz </a></li>
+        <li><a href="https://github.com/nmfretz" target="_blank"> Github </a></li>
+        <li><a href="https://twitter.com/nmfretz" target="_blank"> Twitter </a></li>
+      </ul>
+    </nav>
+    <div class="container">
+      <div class="center">
+        <h2 class="title">NORBERT'S GAMBIT</h2>
+        <div>
+          <p class="description">A method to exchange CAD and USD using a brokerage account</p>
+          <p class="attribution">
+            Based on a post by
+            <a href="https://wealthsavvy.ca/norberts-gambit-questrade/" target="_blank">wealthsavvy</a>
+          </p>
+        </div>
+      </div>
+      <form class="form">
+        <div class="row">
+          <div class="one-half column vert-align">
+            <label for="commission-per-share">Commission Per Share</label>
+          </div>
+          <div class="one-half column unit-input">
+            <span class="units">$</span>
+            <input class="u-full-width" type="number" id="commission-per-share" value="0.01" step="0.01" required />
+          </div>
+        </div>
+        <div class="row">
+          <div class="one-half column vert-align">
+            <label for="minimum-commission">Minimum Commission</label>
+          </div>
+          <div class="one-half column unit-input">
+            <span class="units">$</span>
+            <input class="u-full-width" type="number" id="minimum-commission" value="4.95" step="0.01" required />
+          </div>
+        </div>
+        <div class="row">
+          <div class="one-half column vert-align">
+            <label for="maximum-commission">Maximum Commission</label>
+          </div>
+          <div class="one-half column unit-input">
+            <span class="units">$</span>
+            <input class="u-full-width" type="number" id="maximum-commission" value="9.95" step="0.01" required />
+          </div>
+        </div>
+        <div class="row">
+          <div class="one-half column vert-align">
+            <label for="ecn-fees-per-share">ECN Fees Per Share</label>
+          </div>
+          <div class="one-half column unit-input">
+            <span class="units">$</span>
+            <input class="u-full-width" type="number" id="ecn-fees-per-share" value="0.0035" step="0.0001" required />
+          </div>
+        </div>
+        <div class="row">
+          <div class="one-half column vert-align">
+            <label for="exchange-rate">Exchange Rate (USD to CAD)*</label>
+          </div>
+          <div class="one-half column unit-input">
+            <span class="units">$</span>
+            <input
+              class="u-full-width"
+              type="number"
+              id="exchange-rate"
+              step="0.000001"
+              placeholder="retrieving..."
+              required
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="one-half column vert-align">
+            <label for="dlr-to-price">DLR.TO Price (CAD)*</label>
+          </div>
+          <div class="one-half column unit-input">
+            <span class="units">$</span>
+            <input
+              class="u-full-width"
+              type="number"
+              id="dlr-to-price"
+              step="0.01"
+              placeholder="retrieving..."
+              required
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="one-half column vert-align">
+            <label for="dlr-u-to-price">DLR.U.TO Price (USD)*</label>
+          </div>
+          <div class="one-half column unit-input">
+            <span class="units">$</span>
+            <input
+              class="u-full-width"
+              type="number"
+              id="dlr-u-to-price"
+              step="0.01"
+              placeholder="retrieving..."
+              required
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="one-half column vert-align">
+            <label for="incur-ecn-buy-fees">Incur ECN Fees When Buying DLR.TO</label>
+          </div>
+          <div class="one-half column unit-input">
+            <select class="u-full-width" id="incur-ecn-buy-fees">
+              <option value="Option 1">Yes</option>
+              <option value="Option 2">No</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="one-half column vert-align">
+            <label for="incur-ecn-sell-fees">Incur ECN Fees When Selling DLR.U.TO</label>
+          </div>
+          <div class="one-half column unit-input">
+            <select class="u-full-width" id="incur-ecn-sell-fees">
+              <option value="Option 1">Yes</option>
+              <option value="Option 2">No</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="one-half column vert-align">
+            <label for="cad-to-convert">CAD To Convert</label>
+          </div>
+          <div class="one-half column unit-input">
+            <span class="units">$</span>
+            <input
+              class="u-full-width"
+              type="number"
+              step="0.01"
+              id="cad-to-convert"
+              placeholder="CAD to convert"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="one-half column">
+            <input class="u-full-width" type="reset" value="Reset Default Values" />
+          </div>
+          <div class="one-half column">
+            <input class="button-primary u-full-width" type="submit" value="Calculate" />
+          </div>
+        </div>
+
+        <div class="output hide">
+          <div class="main-output hide">
+            <div class="center">
+              <h4>RESULTS</h4>
+            </div>
+            <div class="row">
+              <div class="one-half column vert-align">
+                <label for="num-shares-to-buy"># of DLR.TO Shares To Buy</label>
+              </div>
+              <div class="one-half column unit-input">
+                <span class="units">#</span>
+                <input class="u-full-width" type="text" id="num-shares-to-buy" disabled />
+              </div>
+            </div>
+            <div class="row">
+              <div class="one-half column vert-align">
+                <label for="cad-converted">CAD Converted</label>
+              </div>
+              <div class="one-half column unit-input">
+                <span class="units">$</span>
+                <input class="u-full-width" type="text" id="cad-converted" disabled />
+              </div>
+            </div>
+            <div class="row">
+              <div class="one-half column vert-align">
+                <label for="usd-received">USD Received</label>
+              </div>
+              <div class="one-half column unit-input">
+                <span class="units">$</span>
+                <input class="u-full-width" type="text" id="usd-received" disabled />
+              </div>
+            </div>
+            <div class="row">
+              <div class="one-half column vert-align">
+                <label for="conversion-fee-percent">Conversion Fee</label>
+              </div>
+              <div class="one-half column unit-input">
+                <span class="units">%</span>
+                <input class="u-full-width" type="text" id="conversion-fee-percent" disabled />
+              </div>
+            </div>
+            <div class="row center">
+              <input class="detail-button" type="button" value="Show Fee Details" />
+            </div>
+          </div>
+
+          <div class="output-details hide">
+            <div class="row">
+              <div class="one-half column vert-align">
+                <label for="commission-usd">Commission Fee USD</label>
+              </div>
+              <div class="one-half column unit-input">
+                <span class="units">$</span>
+                <input class="u-full-width" type="text" id="commission-fee-usd" disabled />
+              </div>
+            </div>
+            <div class="row">
+              <div class="one-half column vert-align">
+                <label for="ecn-fee-from-buying">ECN Fee From Buying DLR.TO (CAD)</label>
+              </div>
+              <div class="one-half column unit-input">
+                <span class="units">$</span>
+                <input class="u-full-width" type="text" id="ecn-fee-from-buying" disabled />
+              </div>
+            </div>
+            <div class="row">
+              <div class="one-half column vert-align">
+                <label for="ecn-fee-from-selling">ECN Fee From Selling DLR.U.TO (CAD)</label>
+              </div>
+              <div class="one-half column unit-input">
+                <span class="units">$</span>
+                <input class="u-full-width" type="text" id="ecn-fee-from-selling" disabled />
+              </div>
+            </div>
+            <div class="row">
+              <div class="one-half column vert-align">
+                <label for="cad-conversion-fee">CAD Conversion Fee</label>
+              </div>
+              <div class="one-half column unit-input">
+                <span class="units">$</span>
+                <input class="u-full-width" type="text" id="cad-conversion-fee" disabled />
+              </div>
+            </div>
+            <div class="row">
+              <div class="one-half column vert-align">
+                <label for="usd-conversion-fee">USD Conversion Fee</label>
+              </div>
+              <div class="one-half column unit-input">
+                <span class="units">$</span>
+                <input class="u-full-width" type="text" id="usd-conversion-fee" disabled />
+              </div>
+            </div>
+            <div class="row">
+              <div class="one-half column vert-align">
+                <label for="combined-cad-conversion-fee">CAD Combined Conversion Fee</label>
+              </div>
+              <div class="one-half column unit-input">
+                <span class="units">$</span>
+                <input class="u-full-width" type="text" id="combined-cad-conversion-fee" disabled />
+              </div>
+            </div>
+            <div class="row">
+              <div class="one-half column vert-align">
+                <label for="combined-usd-conversion-fee">USD Combined Conversion Fee</label>
+              </div>
+              <div class="one-half column unit-input">
+                <span class="units">$</span>
+                <input class="u-full-width" type="text" id="combined-usd-conversion-fee" disabled />
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      <p class="note">
+        *Exchange rate and stock price data queried from
+        <a href="https://www.yahoofinanceapi.com/" target="_blank">Yahoo Finance API</a>
+      </p>
+    </div>
+  </body>
+</html>
