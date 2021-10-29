@@ -59,7 +59,7 @@ npm run dev
 
 ### Heroku Deployment
 
-Back end server currently deployed on heroku at (to add)
+Back end server currently deployed on heroku at https://norberts-gambit.herokuapp.com/
 
 - Deployed from github subdirectory server using https://github.com/timanovsky/subdir-heroku-buildpack.git
 
@@ -68,9 +68,15 @@ Back end server currently deployed on heroku at (to add)
 
 ### Vercel Deployment
 
-Front end currently deployed on vercel at (to add)
+Front end currently deployed on vercel at https://norberts-gambit.vercel.app/
 
 Change `const SERVER_URL` in `/client/build/calculate.js` to url of your server.
+
+- Vercel settings for deployment:
+  - Root Directory: `client/build`
+  - Build Command: override with `npm run build`
+  - Output Directory: override with `.`
+  - Install Command: override with `npm install`
 
 # Screenshots
 
