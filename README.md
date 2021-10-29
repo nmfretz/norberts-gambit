@@ -10,7 +10,7 @@ I based this calculator off a post by [walthsavvy](https://wealthsavvy.ca/norber
 
 ### Features & Design
 
-- :dog: Fetches exchange rate and stock price data from the [Yahoo Finance API](https://www.yahoofinanceapi.com/) API.
+- :dog: Fetches exchange rate and stock price data from the [Yahoo Finance API](https://www.yahoofinanceapi.com/).
 - :brain: In-memory cache to limit API calls.
 - :skull: [Skeleton CSS](http://getskeleton.com/) used as simple CSS boilerplate.
 
