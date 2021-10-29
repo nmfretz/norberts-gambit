@@ -6,36 +6,20 @@ const cors = require("cors");
 const app = express();
 app.use(cors());
 
-const BASE_URL = "https://www.alphavantage.co/query?";
-
-const exchangeRateParams = new URLSearchParams({
-  function: "CURRENCY_EXCHANGE_RATE",
-  from_currency: "USD",
-  to_currency: "CAD",
-  apikey: process.env.ALPHA_VANTAGE_API_KEY,
-});
-
-const dlrToParams = new URLSearchParams({
-  function: "GLOBAL_QUOTE",
-  symbol: "DLR.TRT",
-  apikey: process.env.ALPHA_VANTAGE_API_KEY,
-});
-
-const dlrUToParams = new URLSearchParams({
-  function: "GLOBAL_QUOTE",
-  symbol: "DLR-U.TRT",
-  apikey: process.env.ALPHA_VANTAGE_API_KEY,
-});
+const BASE_URL = "https://query1.finance.yahoo.com/v8/finance/chart/";
+const MINUTES_TO_MILLISECONDS = 1 * 60 * 1000;
 
 let cacheData;
 let cacheTime;
 
 app.get("/", async (req, res) => {
-  // in-memory cache for 15 min
-  if (cacheTime && cacheTime > Date.now() - 15 * 60 * 1000) {
+  // in-memory cache for 5 min
+  if (cacheTime && cacheTime > Date.now() - 5 * MINUTES_TO_MILLISECONDS) {
+    console.log("using cache");
     return res.json(cacheData);
   }
   try {
+    // TODO - error handle for status code here
     const priceArr = [];
 
     const response = await Promise.all([getExchangeRate(), getDlrToPrice(), getDlrToUPrice()]);
@@ -50,15 +34,15 @@ app.get("/", async (req, res) => {
 });
 
 function getExchangeRate() {
-  return axios.get(`${BASE_URL}${exchangeRateParams}`);
+  return axios.get(`${BASE_URL}USDCAD=X`);
 }
 
 function getDlrToPrice() {
-  return axios.get(`${BASE_URL}${dlrToParams}`);
+  return axios.get(`${BASE_URL}DLR.TO?&range=max`);
 }
 
 function getDlrToUPrice() {
-  return axios.get(`${BASE_URL}${dlrUToParams}`);
+  return axios.get(`${BASE_URL}DLR-U.TO?&range=max`);
 }
 
 const PORT = process.env.PORT || 5000;

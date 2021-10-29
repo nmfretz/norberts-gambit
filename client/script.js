@@ -6,21 +6,24 @@ const mainOutput = document.querySelector(".main-output");
 const outputDetails = document.querySelector(".output-details");
 const detailBtn = document.querySelector(".detail-button");
 
-getPrices();
+await getPrices();
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
+  // blank input error handled in html by 'required' attribute
+  // number value requirement handled in htmk by type='number' attribute
+
   calculateResults();
   outputDiv.classList.remove("hide");
   mainOutput.classList.remove("hide");
 });
 
-form.addEventListener("reset", (e) => {
+form.addEventListener("reset", async (e) => {
   outputDiv.classList.add("hide");
   mainOutput.classList.add("hide");
   outputDetails.classList.add("hide");
   detailBtn.value = "Show Fee Details";
-  getPrices();
+  await getPrices();
 });
 
 mainOutput.addEventListener("click", (e) => {

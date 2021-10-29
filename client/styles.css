@@ -1,3 +1,32 @@
+.nav {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.5rem 1rem;
+  font-size: 1.7rem;
+}
+
+.menu-items {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.menu-items li {
+  margin: 0;
+}
+
+.menu-items a {
+  text-decoration: none;
+  color: #222;
+}
+
+.menu-items a:hover {
+  color: #999;
+}
+
 .container {
   max-width: 600px;
 }
@@ -7,17 +36,39 @@
 }
 
 .title {
-  margin-top: 4rem;
-  margin-bottom: 2rem;
+  margin: 0;
+  padding: 0.4em;
+  font-size: 3rem;
+}
+
+@media (min-width: 550px) {
+  .title {
+    font-size: 4rem;
+  }
 }
 
 .description {
-  margin-bottom: 0.5rem;
+  margin: 0;
 }
 
 .attribution {
   font-style: italic;
   font-size: 0.8em;
+  margin: 0;
+}
+
+.form {
+  margin-top: 3.5rem;
+}
+
+.row div label {
+  text-align: center;
+}
+
+@media (min-width: 550px) {
+  .row div label {
+    text-align: left;
+  }
 }
 
 .vert-align {
@@ -35,21 +86,19 @@
 }
 
 .unit-input {
-  display: flex;
+  position: relative;
 }
 
 .units {
+  position: absolute;
+  left: 1rem;
   color: rgb(168, 168, 168);
   padding-top: 0.45em;
   padding-right: 0.6em;
 }
 
-.units-percent {
-  padding-right: 0.3em;
-}
-
-.units-none {
-  padding-right: 1.15em;
+.row div input {
+  padding-left: 3rem;
 }
 
 .hide {

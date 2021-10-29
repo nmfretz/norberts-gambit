@@ -1,19 +1,43 @@
-export async function getPrices() {
-  // change domain based on deployment
-  const SERVER_URL = `http://localhost:5000/`;
+// input elements
+const commissionPerShare = document.querySelector("#commission-per-share");
+const minCommission = document.querySelector("#minimum-commission");
+const maxCommission = document.querySelector("#maximum-commission");
+const ecnFeesPerShare = document.querySelector("#ecn-fees-per-share");
+const exchangeRate = document.querySelector("#exchange-rate");
+const incurEcnBuyFees = document.querySelector("#incur-ecn-buy-fees");
+const incurEcnSellFees = document.querySelector("#incur-ecn-sell-fees");
+const cadToConvert = document.querySelector("#cad-to-convert");
+const dlrToPrice = document.querySelector("#dlr-to-price");
+const dlrUToPrice = document.querySelector("#dlr-u-to-price");
 
+//  output elements
+const numSharesToBuy = document.querySelector("#num-shares-to-buy");
+const cadConverted = document.querySelector("#cad-converted");
+const usdReceived = document.querySelector("#usd-received");
+const conversionFeePercent = document.querySelector("#conversion-fee-percent");
+const commissionFeeUsd = document.querySelector("#commission-fee-usd");
+const ecnFeeFromBuying = document.querySelector("#ecn-fee-from-buying");
+const ecnFeeFromSelling = document.querySelector("#ecn-fee-from-selling");
+const cadConversionFee = document.querySelector("#cad-conversion-fee");
+const usdConversionFee = document.querySelector("#usd-conversion-fee");
+const combinedCadConversionFee = document.querySelector("#combined-cad-conversion-fee");
+const combinedUsdConversionFee = document.querySelector("#combined-usd-conversion-fee");
+
+const SERVER_URL = `http://localhost:5000/`; // change server url based on deployment
+
+export async function getPrices() {
+  // TODO - update this try catch
   try {
-    // TODO - update this try catch
     const response = await fetch(SERVER_URL);
     const data = await response.json();
-    console.log(data);
-    console.log(data[3]);
+    // console.log(data);
 
-    exchangeRate.value = parseFloat(data[0]["Realtime Currency Exchange Rate"]["5. Exchange Rate"]).toFixed(6);
-    dlrToPrice.value = parseFloat(data[1]["Global Quote"]["05. price"]).toFixed(2);
-    dlrUToPrice.value = parseFloat(data[2]["Global Quote"]["05. price"]).toFixed(2);
+    exchangeRate.value = parseFloat(data[0].chart.result[0].meta.regularMarketPrice).toFixed(6);
+    dlrToPrice.value = parseFloat(data[1].chart.result[0].meta.regularMarketPrice).toFixed(2);
+    dlrUToPrice.value = parseFloat(data[2].chart.result[0].meta.regularMarketPrice).toFixed(2);
   } catch (error) {
-    console.log("there was an error retrieving the data");
+    console.error(error);
+    // render network error to HTML
   }
 }
 
@@ -92,28 +116,3 @@ function calcPercentConversionFee() {
     100
   ).toFixed(2);
 }
-
-// input elements
-const commissionPerShare = document.querySelector("#commission-per-share");
-const minCommission = document.querySelector("#minimum-commission");
-const maxCommission = document.querySelector("#maximum-commission");
-const ecnFeesPerShare = document.querySelector("#ecn-fees-per-share");
-const exchangeRate = document.querySelector("#exchange-rate");
-const incurEcnBuyFees = document.querySelector("#incur-ecn-buy-fees");
-const incurEcnSellFees = document.querySelector("#incur-ecn-sell-fees");
-const cadToConvert = document.querySelector("#cad-to-convert");
-const dlrToPrice = document.querySelector("#dlr-to-price");
-const dlrUToPrice = document.querySelector("#dlr-u-to-price");
-
-//  output elements
-const numSharesToBuy = document.querySelector("#num-shares-to-buy");
-const cadConverted = document.querySelector("#cad-converted");
-const usdReceived = document.querySelector("#usd-received");
-const conversionFeePercent = document.querySelector("#conversion-fee-percent");
-const commissionFeeUsd = document.querySelector("#commission-fee-usd");
-const ecnFeeFromBuying = document.querySelector("#ecn-fee-from-buying");
-const ecnFeeFromSelling = document.querySelector("#ecn-fee-from-selling");
-const cadConversionFee = document.querySelector("#cad-conversion-fee");
-const usdConversionFee = document.querySelector("#usd-conversion-fee");
-const combinedCadConversionFee = document.querySelector("#combined-cad-conversion-fee");
-const combinedUsdConversionFee = document.querySelector("#combined-usd-conversion-fee");
